@@ -11,7 +11,8 @@ public class DatabaseConnection {
 	
 	public DatabaseConnection(String databasename , String username , String password){
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+databasename, username, password);
+			String connectionUrl = "jdbc:mysql://localhost:3306/"+databasename;
+			Connection connection = DriverManager.getConnection(connectionUrl, username, password);
 			System.out.println("Database connection established");
 			this.statement = connection.createStatement();
 		}catch(SQLException sqlException) {
